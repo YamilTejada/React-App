@@ -1,0 +1,20 @@
+{
+  "name": "curso-react-supremo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YamilTejada/React-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YamilTejada/React-App/issues"
+  },
+  "homepage": "https://github.com/YamilTejada/React-App#readme"
+}

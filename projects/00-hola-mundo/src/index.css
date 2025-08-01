@@ -1,0 +1,20 @@
+/*Index para la página principal (main.jsx)*/ 
+
+body {
+  margin: 0;
+  background: #222;
+  font-family: system-ui;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+/*Modificar formato del nuevo componente <App/> 
+  Es recomendable hacer aquí en este formato en vez de App.css
+*/
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
