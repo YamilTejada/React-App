@@ -16,8 +16,8 @@ const users = [
     isFollowing: false
   },
   {
-    userName: 'PacoHdezs',
-    name: 'Paco Hdez',
+    userName: 'YamilTejada',
+    name: 'Yamil',
     isFollowing: true
   },
   {
