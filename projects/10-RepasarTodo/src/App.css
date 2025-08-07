@@ -1,0 +1,147 @@
+/* App.css */
+.App-Container {
+    /*max : una joyita para los elementos :D : mientras disminuye la ventana , disminuye el elemento*/
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #fdfdfd, #ebedee);
+  border-radius: 24px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.App-Container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  color: #3a3a3a;
+  animation: fadeIn 0.5s ease;
+}
+
+.Elemento-Container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: slideUp 0.4s ease forwards;
+}
+
+.Elemento-Container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.Elemento-Container p {
+  margin: 8px 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:first-of-type {
+  background: #ff4d4d;
+  color: white;
+}
+
+button:first-of-type:hover {
+  background: #e60000;
+}
+
+button:last-of-type {
+  background: #4caf50;
+  color: white;
+}
+
+button:last-of-type:hover {
+  background: #3b8b3b;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/*Formulario*/
+
+
+.App-Form {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-Form label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.App-Form input {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.App-Form input:focus {
+  border-color: #0661ac;
+  box-shadow: 0 0 0 4px #2561af;
+  outline: none;
+}
+
+.App-Form button {
+  padding: 12px 15px;
+  background: linear-gradient(to right, #0661ac, #2561af);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.App-Form button:hover {
+  background: linear-gradient(to right, #0661ac, #2561af);
+  transform: translateY(-2px);
+}
