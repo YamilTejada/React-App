@@ -80,8 +80,11 @@ export function App() {
 
   //useEffect
 
+  useEffect(() => {
+    console.log(`✅ Hay ${completadas} tareas completadas`);
+  }, [completadas]);
 
-
+  
 
   return (
 
