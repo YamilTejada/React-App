@@ -1,0 +1,156 @@
+/* ========== Elemento.css (Card animado) ========== */
+
+.Elemento-section1,
+.Completed {
+  position: relative;
+  border-radius: 18px;
+  padding: 1.1rem 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease, background .35s ease;
+  will-change: transform;
+}
+
+/* Brillos decorativos dinámicos */
+.Elemento-section1::before,
+.Completed::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background:
+    radial-gradient(60% 60% at 0% 0%, rgba(122,203,255,0.14), transparent 60%),
+    radial-gradient(50% 50% at 100% 100%, rgba(166,124,255,0.14), transparent 60%);
+  opacity: .7;
+  z-index: -1;
+}
+
+.Elemento-section1:hover,
+.Completed:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+  border-color: rgba(122,203,255,0.25);
+}
+
+/* Estado Completed con acento verde y animación sutil */
+.Completed {
+  background:
+    linear-gradient(180deg, rgba(0,225,162,0.12), rgba(0,225,162,0.04)),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-color: rgba(0,225,162,0.35);
+  box-shadow: 0 18px 36px rgba(0,225,162,0.18);
+  animation: pulseCard 1.2s ease-in-out 1;
+}
+@keyframes pulseCard {
+  0%   { transform: scale(0.98); }
+  60%  { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+.Completed, .Elemento-section1{
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Layout interno */
+.Elemento-article1 {
+  display: flex;
+  gap: .5rem 1rem;
+  flex-direction: column;
+  
+}
+
+.Elemento-article2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Elemento-article1 {
+  margin-bottom: .6rem;
+}
+.Elemento-article1 h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: #e9eef8;
+  letter-spacing: .2px;
+  line-height: 1.3;
+  opacity: .95;
+}
+
+/* Efecto strike-through sutil cuando está completado */
+.Completed .Elemento-article1 h3:nth-child(2), /* title */
+.Completed .Elemento-article1 h3:nth-child(3) { /* completed */
+  position: relative;
+}
+.Completed .Elemento-article1 h3:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 52%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(233,238,248,0), rgba(233,238,248,0.9), rgba(233,238,248,0));
+  opacity: .75;
+}
+
+/* Botones en cada card */
+.Elemento-article2 button {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  color: #eef3ff;
+  padding: 0.55rem 0.9rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .2px;
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .25s ease, color .2s ease;
+}
+
+.Elemento-article2 button:first-of-type { /* Toggle Completed */
+  border-color: rgba(0,225,162,0.3);
+  box-shadow: 0 8px 20px rgba(0,225,162,0.12);
+}
+.Elemento-article2 button:first-of-type:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,225,162,0.55);
+  box-shadow: 0 14px 24px rgba(0,225,162,0.2);
+}
+
+.Elemento-article2 button:last-of-type { /* Delete */
+  border-color: rgba(255,107,107,0.28);
+  box-shadow: 0 8px 20px rgba(255,107,107,0.12);
+}
+.Elemento-article2 button:last-of-type:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,107,107,0.55);
+  box-shadow: 0 14px 24px rgba(255,107,107,0.2);
+}
+
+/* Micro-glow al pasar el mouse por la tarjeta */
+.Elemento-section1::after,
+.Completed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(140px 140px at var(--mx, 50%) var(--my, 50%), rgba(122,203,255,0.13), transparent 40%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.Elemento-section1:hover::after,
+.Completed:hover::after { opacity: 1; }
+
+/* Responsivo */
+@media (max-width: 420px) {
+  .Elemento-article1 h3 { font-size: 0.92rem; }
+  .Elemento-article2 { gap: .5rem; }
+  .Elemento-article2 button { width: 100%; }
+}

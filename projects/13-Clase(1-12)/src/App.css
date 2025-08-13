@@ -1,0 +1,269 @@
+/* .Completed {
+    background-color: greenyellow;
+} */
+
+/* ========== App.css (UI 2030) ========== */
+
+/* Variables base */
+:root {
+  --bg: radial-gradient(1200px 800px at 10% 10%, #101826 0%, #0a0f1a 35%, #080b12 100%);
+  --glass: rgba(255, 255, 255, 0.06);
+  --text: #e7ecf3;
+  --muted: #a9b4c7;
+  --primary: #7acbff;
+  --primary-2: #a67cff;
+  --accent: #00e1a2;
+  --danger: #ff6b6b;
+  --ring: rgba(122, 203, 255, 0.35);
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --blur: 16px;
+  --outline: 2px solid rgba(122, 203, 255, 0.3);
+}
+
+/* Dark mode preferente */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass: rgba(255, 255, 255, 0.07);
+    --ring: rgba(166, 124, 255, 0.35);
+  }
+}
+
+/* Reset elegante */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+  background-attachment: fixed;
+}
+
+/* Efecto sutil de parallax en el fondo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vh -20vw;
+  background:
+    radial-gradient(800px 600px at 80% 20%, rgba(122,203,255,0.08), transparent 60%),
+    radial-gradient(900px 700px at 10% 80%, rgba(166,124,255,0.08), transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+  animation: aurora 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes aurora {
+  0%   { transform: translateY(0px) translateX(0px) scale(1); opacity: .9; }
+  100% { transform: translateY(-20px) translateX(10px) scale(1.02); opacity: 1; }
+}
+
+/* Contenedor principal */
+.App-container {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  padding: 2.5rem clamp(1rem, 3vw, 3rem);
+}
+
+/* Título con glow */
+.App-container h1 {
+  margin: 0;
+  letter-spacing: 0.3px;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.6rem);
+  background: linear-gradient(90deg, var(--primary), var(--primary-2), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 16px rgba(122,203,255,0.25));
+  animation: titleFloat 10s ease-in-out infinite alternate;
+}
+@keyframes titleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(2px); }
+}
+
+/* Panel de formulario (glass card) */
+.App-section1 {
+  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 1.2rem + 1vw, 1.75rem);
+  max-width: 820px;
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+  align-items: end;
+  position: relative;
+  overflow: clip;
+}
+
+/* Decoraciones luminosas */
+.App-section1::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(600px 120px at 20% -20%, rgba(122,203,255,0.16), transparent 60%),
+              radial-gradient(600px 120px at 80% 120%, rgba(166,124,255,0.18), transparent 65%);
+  z-index: -1;
+}
+
+/* Inputs estilizados */
+.App-section1 label {
+  grid-column: span 1;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: left;
+  font-size: 30px;
+}
+.App-section1 input {
+  grid-column: span 1;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.12);
+  outline: none;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .1s ease;
+}
+.App-section1 input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px var(--ring);
+  transform: translateY(-1px);
+}
+
+/* Botones futuristas */
+.App-section1 button {
+  grid-column: span 1;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+    radial-gradient(120% 180% at 0% 0%, rgba(122,203,255,0.18), transparent 40%),
+    radial-gradient(120% 180% at 100% 100%, rgba(166,124,255,0.18), transparent 40%);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.App-section1 button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(122,203,255,0.4);
+  box-shadow: 0 12px 30px rgba(122,203,255,0.12);
+}
+.App-section1 button:active {
+  transform: translateY(0);
+}
+
+/* Esquema colores específicos */
+.App-section1 button:nth-last-of-type(2) { /* Add */
+  background:
+    linear-gradient(180deg, rgba(0, 225, 162, 0.25), rgba(0, 225, 162, 0.10)),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-color: rgba(0,225,162,0.35);
+  box-shadow: 0 12px 24px rgba(0,225,162,0.16);
+}
+.App-section1 button:last-of-type { /* Delete all */
+  background:
+    linear-gradient(180deg, rgba(255, 107, 107, 0.25), rgba(255, 107, 107, 0.10)),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-color: rgba(255,107,107,0.35);
+  box-shadow: 0 12px 24px rgba(255,107,107,0.16);
+}
+
+/* Ripple micro-interacción */
+.App-section1 button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120px 120px at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.18), transparent 40%);
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.App-section1 button:hover::after { opacity: 1; }
+.App-section1 button:where(:hover, :focus-visible) { outline: none; }
+
+.App-section1 button.add   { }
+.App-section1 button.delete{ }
+
+/* Grid de elementos/lista */
+.App-section2 {
+  max-width: 1000px;
+  width: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(0.9rem, 2vw, 1.25rem);
+}
+
+/* Mejoras de accesibilidad: reducir motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Responsivo fino */
+@media (max-width: 720px) {
+  .App-section1 {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+  .App-section1 button {
+    width: 100%;
+  }
+}
+
+/* Pequeño helper para ripple coord (opcional si quieres JS) */
+.App-section1 button:hover {
+  --x: 50%;
+  --y: 50%;
+}
+
+
+.App-section1 select {
+  grid-column: span 2; /* que ocupe todo el ancho, como filtro general */
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.12);
+  outline: none;
+  background:
+    linear-gradient(180deg, var(--glass), rgba(255,255,255,0.03)),
+    radial-gradient(120% 180% at 0% 0%, rgba(122,203,255,0.12), transparent 40%),
+    radial-gradient(120% 180% at 100% 100%, rgba(166,124,255,0.12), transparent 40%);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .1s ease;
+  appearance: none; /* quita la flecha default */
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+}
+
+.App-section1 select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px var(--ring);
+  transform: translateY(-1px);
+}
+
+/* Flecha custom */
+.App-section1 select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23a9b4c7' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+}
+
+.App-section1 select:hover {
+  border-color: rgba(122,203,255,0.4);
+}
+
+
+

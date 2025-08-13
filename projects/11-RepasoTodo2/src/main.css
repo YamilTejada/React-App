@@ -1,0 +1,22 @@
+/* main.css */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#root {
+  height: 100%;
+}
