@@ -1,0 +1,83 @@
+/* Fuente Pokémon friendly */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffffff, #ff0000);
+  font-family: 'Press Start 2P', cursive;
+  color: #222;
+}
+
+.App-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.App-section1 {
+  text-align: center;
+  margin-bottom: 20px;
+
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: contain; 
+
+  height: 120px; 
+}
+
+.App-section1 p {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+.App-section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.App-section2 h2 {
+  font-size: 1rem;
+  color: #e60012;
+}
+
+.App-section2 input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px solid #e60012;
+  font-family: inherit;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.App-section2 button {
+  background: #e60012;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-family: inherit;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.App-section2 button:hover {
+  background: #b3000d;
+  transform: scale(1.05);
+}
+
+.App-section3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
