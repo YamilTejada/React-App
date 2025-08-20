@@ -1,0 +1,159 @@
+/* ================================
+   App.css - Futuristic 2030 Design
+   ================================ */
+
+/* VARIABLES */
+:root {
+  --bg-gradient: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
+  --bg-light: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.15);
+  --txt-main: #f5f7fa;
+  --txt-dim: #a5b1c2;
+  --accent: #7c5cff;
+  --accent-2: #00e0a4;
+  --danger: #ff4d6d;
+  --success: #2ecc71;
+}
+
+/* BACKGROUND ANIMADO */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--txt-main);
+  background: var(--bg-gradient);
+  background-size: 400% 400%;
+  animation: bgMove 20s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* CONTENEDOR PRINCIPAL */
+.App-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  backdrop-filter: blur(20px);
+}
+
+/* SECCIONES */
+.App-section {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.App-section:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* TITULOS */
+h1, h3 {
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.section1 h1 {
+  font-size: 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px var(--accent); }
+  to { text-shadow: 0 0 20px var(--accent-2); }
+}
+
+/* INPUTS */
+input {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  margin: 0.5rem 0;
+  width: 100%;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: var(--txt-main);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* BOTONES */
+button {
+  padding: 0.7rem 1.2rem;
+  margin: 0.4rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ELEMENTOS */
+.Elemento-container {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 0.7rem 0;
+  border: 1px solid var(--border-light);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.Elemento-container:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateX(5px);
+}
+
+.Elemento-container h3 {
+  margin: 0.3rem 0;
+}
+
+/* COLORES DINÁMICOS PARA ESTADOS */
+button:nth-of-type(1) {
+  background: linear-gradient(135deg, var(--success), #27ae60);
+}
+
+button:nth-of-type(2) {
+  background: linear-gradient(135deg, var(--danger), #c0392b);
+}
+
+/* EFECTOS DE TEXTO */
+.App-article2 h3,
+.section4 h3 {
+  font-weight: 500;
+  text-align: center;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

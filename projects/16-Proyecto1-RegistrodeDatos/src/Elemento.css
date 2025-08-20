@@ -1,0 +1,73 @@
+.elemento {
+  position: relative;
+  padding: 2rem;
+  border-radius: 20px;
+  background: linear-gradient(270deg, #6a5acd, #ff69b4, #ffb347);
+  background-size: 600% 600%;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: movimientoColores 12s ease infinite;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Fondo animado de degradado */
+@keyframes movimientoColores {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover con escala y brillo */
+.elemento:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Texto principal */
+.elemento h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.5s ease;
+}
+
+/* Texto secundario */
+.elemento p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  transition: color 0.5s ease;
+}
+
+/* Efecto al pasar el mouse: texto más brillante */
+.elemento:hover h2 {
+  color: #ffe066;
+}
+.elemento:hover p {
+  color: #ffffff;
+}
+
+/* Efecto borde brillante animado */
+.elemento::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc);
+  background-size: 300% 300%;
+  animation: bordeAnimado 6s linear infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@keyframes bordeAnimado {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
